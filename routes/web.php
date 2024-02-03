@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EcommerceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('homepage');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('homepage');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('aboutpage');
+// Route::get('/about', function () {
+//     return view('about');
+// })->name('aboutpage');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contactpage');
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contactpage');
 
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallerypage');
+// Route::get('/gallery', function () {
+//     return view('gallery');
+// })->name('gallerypage');
+
+Route::get('/', [EcommerceController::class, 'home'])->name('homepage');
+Route::get('/about', [EcommerceController::class, 'about'])->name('aboutpage');
+Route::get('/gallery', [EcommerceController::class, 'gallery'])->name('gallerypage');
+Route::get('/contact', [EcommerceController::class, 'contact'])->name('contactpage');
